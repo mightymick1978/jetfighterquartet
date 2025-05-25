@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jetfighters Quartet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    <header>
+      <h1>Jetfighters Quartet</h1>
+      <div id="volume-control">
+        <img id="volume-icon" src="images/volume_on.png" alt="Volume" title="Toggle Sound">
+      </div>
+    </header>
+    <div id="game-board">
+      <div class="player-area">
+        <h2>You</h2>
+        <div id="player-card-slot" class="card-slot"></div>
+        <div id="player-card-count">Your Cards: 0</div>
+      </div>
+      <div class="player-area">
+        <h2>CPU</h2>
+        <div id="cpu-card-slot" class="card-slot"></div>
+        <div id="cpu-card-count">CPU Cards: 0</div>
+      </div>
+    </div>
+    <div id="message-area">
+      <p id="game-message">Loading game...</p>
+    </div>
+    <div id="fireworks-container"></div>
+  </div>
+  <!-- JavaScript-Module -->
+  <script type="module">
+    import * as Game from './game.js';
+    import * as Audio from './audio.js';
+    import * as Cards from './cards_data.js';
+    import * as UI from './ui.js';
+
+    // Initialisiere Audio
+    Audio.initAudio();
+
+    // Starte das Spiel mit den Jetfighter-Karten
+    Game.initGame(Cards.jetfighters);
+
+    // Lautstärke-Button
+    document.getElementById('volume-icon').addEventListener('click', () => {
+      Audio.toggleMute();
+      document.getElementById('volume-icon').src = Audio.isMuted() ? 'images/volume_off.png' : 'images/volume_on.png';
+    });
+  </script>
+</body>
+</html>
