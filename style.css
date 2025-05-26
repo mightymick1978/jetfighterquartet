@@ -1,0 +1,65 @@
+.card {
+  width: 200px;
+  height: 300px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card.back {
+  background-image: url('card_back.png.png');
+}
+
+.card.front {
+  background-color: white;
+  transform: rotateY(180deg);
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px 8px 0 0;
+}
+
+.card .info {
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+#game-container {
+  max-width: 900px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+#game-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+#message {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#start-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
